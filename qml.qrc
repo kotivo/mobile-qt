@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>App.qml</file>
+        <file>Login.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>Connection.js</file>
+        <file>Main.qml</file>
+        <file>Module.qml</file>
+        <file>fontawesome-webfont.ttf</file>
+        <file>Controllers.qml</file>
+        <file>Controller.qml</file>
+        <file>SwitchAway.qml</file>
+    </qresource>
+</RCC>
