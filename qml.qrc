@@ -2,9 +2,8 @@
     <qresource prefix="/">
         <file>App.qml</file>
         <file>Login.qml</file>
-        <file>qtquickcontrols2.conf</file>
         <file>Connection.js</file>
-        <file>Main.qml</file>
+        <file>Modules.qml</file>
         <file>Module.qml</file>
         <file>fontawesome-webfont.ttf</file>
         <file>Controllers.qml</file>

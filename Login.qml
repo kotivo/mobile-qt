@@ -35,6 +35,7 @@ Rectangle {
 			placeholderText: qsTr('Sähköposti')
 			Layout.alignment: Qt.AlignCenter
 			enabled: !logging
+			inputMethodHints: Qt.ImhEmailCharactersOnly
 		}
 
 		TextField {

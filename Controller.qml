@@ -54,7 +54,7 @@ Rectangle {
 					color: model.connected ? (!controllerAway.checked ? '#63be5f' : '#8f8f8f') : '#000'
 				}
 				onClicked: {
-					container.push(controllerView);
+					container.push(modulesView);
 					container.currentItem.controller = model;
 				}
 			}

@@ -1,9 +1,9 @@
 .pragma library
 
-//var hostname = 'api.dev';
-var hostname = 'https://yhteys.kotivo.fi';
-var apiUrl = hostname + '/api/v1';
-var systemUrl = hostname + '';
+//var rootUrl = 'http://api.dev';
+var rootUrl = 'https://yhteys.kotivo.fi';
+var apiUrl = rootUrl + '/api/v1';
+var systemUrl = rootUrl + '';
 
 function request(method, url, headers, body, raw, cb_ok, cb_error) {
 	var http = new XMLHttpRequest();

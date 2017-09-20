@@ -28,8 +28,8 @@ ApplicationWindow {
 		}
 	}
 	Component {
-		id: controllerView
-		Main {
+		id: modulesView
+		Modules {
 		}
 	}
 
