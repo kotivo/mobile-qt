@@ -32,6 +32,16 @@ ApplicationWindow {
 		Modules {
 		}
 	}
+	Component {
+		id: moduleSettingsView
+		ModuleSettings {
+		}
+	}
+	Component {
+		id: moduleRulesView
+		ModuleRules {
+		}
+	}
 
 	footer: Rectangle {
 		id: footer

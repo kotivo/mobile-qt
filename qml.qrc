@@ -9,5 +9,8 @@
         <file>Controllers.qml</file>
         <file>Controller.qml</file>
         <file>SwitchAway.qml</file>
+        <file>ModuleSettings.qml</file>
+        <file>ModuleRules.qml</file>
+        <file>DialTemperature.qml</file>
     </qresource>
 </RCC>

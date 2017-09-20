@@ -1,7 +1,7 @@
 .pragma library
 
-//var rootUrl = 'http://api.dev';
-var rootUrl = 'https://yhteys.kotivo.fi';
+var rootUrl = 'http://api.dev';
+//var rootUrl = 'https://yhteys.kotivo.fi';
 var apiUrl = rootUrl + '/api/v1';
 var systemUrl = rootUrl + '';
 
@@ -137,4 +137,7 @@ function modulesGet(controller, model) {
 	});
 }
 
+function moduleAway(controller, module, away, cb_ok, cb_error) {
+	put('/controllers/' + controller.id + '/modules/' + module.id, { 'away': away }, cb_ok, cb_error);
+}
 

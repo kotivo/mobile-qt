@@ -44,6 +44,7 @@ Rectangle {
 			echoMode: TextInput.Password
 			Layout.alignment: Qt.AlignCenter
 			enabled: !logging
+			visible: !adminLogin.visible
 		}
 
 		Button {
@@ -90,9 +91,10 @@ Rectangle {
 
 			onClicked: {
 				logging = true;
+				var password = adminLogin.visible ? '' : loginPassword.text;
 				var admin_username = adminLogin.visible ? loginAdminUsername.text : undefined;
 				var admin_password = adminLogin.visible ? loginAdminPassword.text : undefined;
-				Connection.login(loginUsername.text, loginPassword.text, admin_username, admin_password, function(data) {
+				Connection.login(loginUsername.text, password, admin_username, admin_password, function(data) {
 					logging = false;
 					container.push(controllersView);
 				}, function() {
