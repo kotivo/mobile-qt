@@ -1,18 +1,25 @@
 import QtQuick 2.7
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
+import QtGraphicalEffects 1.0
 import "Connection.js" as Connection
 
 Rectangle {
-	width: (parent.width - 10) / Math.max(Math.floor(parent.width / 300), 1)
+	width: (parent.width - 14) / Math.max(Math.floor(parent.width / 300), 1)
 	height: 120
 	color: 'transparent'
 	Rectangle {
 		anchors.fill: parent
-		anchors.margins: 5
+		anchors.margins: 7
 		color: '#fff'
-		border.width: 1
-		border.color: model.connected ? (!moduleAway.checked ? '#63be5f' : '#8f8f8f') : '#000'
+		//border.color: model.connected ? (!moduleAway.checked ? '#63be5f' : '#8f8f8f') : '#000'
+		layer.enabled: true
+		layer.effect: DropShadow {
+			horizontalOffset: 2
+			verticalOffset: 2
+			color: '#888'
+			radius: 5
+		}
 		Rectangle {
 			id: moduleHeader
 			anchors.top: parent.top
@@ -36,7 +43,7 @@ Rectangle {
 				anchors.right: moduleSettingsButton.left
 				contentItem: Label {
 					text: parent.text
-					color: '#dfd'
+					color: '#fff'
 					font.bold: true
 					font.pixelSize: 20
 					font.family: 'FontAwesome'
@@ -54,7 +61,7 @@ Rectangle {
 				anchors.right: parent.right
 				contentItem: Label {
 					text: parent.text
-					color: '#dfd'
+					color: '#fff'
 					font.bold: true
 					font.pixelSize: 20
 					font.family: 'FontAwesome'

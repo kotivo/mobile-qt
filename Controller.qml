@@ -1,6 +1,7 @@
 import QtQuick 2.7
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
+import QtGraphicalEffects 1.0
 import "Connection.js" as Connection
 
 Rectangle {
@@ -12,7 +13,14 @@ Rectangle {
 		anchors.fill: parent
 		anchors.margins: 5
 		color: '#fff'
-		border.color: model.connected ? (!controllerAway.checked ? '#63be5f' : '#8f8f8f') : '#000'
+		layer.enabled: true
+		layer.effect: DropShadow {
+			horizontalOffset: 2
+			verticalOffset: 2
+			color: '#888'
+			radius: 5
+		}
+		//border.color: model.connected ? (!controllerAway.checked ? '#63be5f' : '#8f8f8f') : '#000'
 		RowLayout {
 			anchors.fill: parent
 			ColumnLayout {
@@ -37,9 +45,9 @@ Rectangle {
 			}
 			Button {
 				id: controllerShowButton
-				text: '\uf061'
+				text: '\uf054'
 				Layout.fillHeight: true
-				implicitWidth: height
+				implicitWidth: height / 1.8
 				contentItem: Label {
 					text: parent.text
 					color: '#fbfbfb'

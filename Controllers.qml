@@ -2,6 +2,7 @@ import QtQuick 2.7
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import Qt.labs.settings 1.0
+import QtGraphicalEffects 1.0
 import "Connection.js" as Connection
 
 Rectangle {
@@ -12,19 +13,14 @@ Rectangle {
 		ColumnLayout {
 			width: app.width
 			height: app.height
-			Rectangle {
+
+			Header {
+				text: qsTr('Valitse sijainti')
+				Layout.alignment: Qt.AlignTop
+				Layout.bottomMargin: 5
 				Layout.fillWidth: true
-				height: 50
-				color: '#63be5f'
-				Text {
-					text: qsTr('Valitse sijainti')
-					color: '#fff'
-					font.pixelSize: 20
-					anchors.fill: parent
-					horizontalAlignment: Text.AlignHCenter
-					verticalAlignment: Text.AlignVCenter
-				}
 			}
+
 			Flow {
 				Layout.fillWidth: true
 				Layout.fillHeight: true

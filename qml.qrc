@@ -12,5 +12,7 @@
         <file>ModuleSettings.qml</file>
         <file>ModuleRules.qml</file>
         <file>DialTemperature.qml</file>
+        <file>Header.qml</file>
+        <file>Style.qml</file>
     </qresource>
 </RCC>

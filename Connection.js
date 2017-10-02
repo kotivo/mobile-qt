@@ -1,7 +1,7 @@
 .pragma library
 
-var rootUrl = 'http://api.dev';
-//var rootUrl = 'https://yhteys.kotivo.fi';
+//var rootUrl = 'http://api.dev';
+var rootUrl = 'https://yhteys.kotivo.fi';
 var apiUrl = rootUrl + '/api/v1';
 var systemUrl = rootUrl + '';
 

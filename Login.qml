@@ -72,7 +72,7 @@ Rectangle {
 					height: parent.height
 					Text {
 						id: loginDoLabel
-						text: '\uf061'
+						text: '\uf054'
 						font.pointSize: 14
 						font.family: 'FontAwesome'
 						color: '#fbfbfb'
