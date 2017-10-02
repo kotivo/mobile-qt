@@ -2,10 +2,11 @@ import QtQuick 2.7
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import Qt.labs.settings 1.0
-import "Connection.js" as Connection
+import 'Connection.js' as Connection
+import '.'
 
 Rectangle {
-	color: '#63be5f'
+	color: Style.backgroundDark
 
 	property bool logging: false
 	property int admin_taps: 0
@@ -15,10 +16,11 @@ Rectangle {
 		anchors.topMargin: 50
 
 		Text {
-			text: qsTr('Tervetuloa Oma Kotivoon')
+			text: qsTr('Kirjaudu Kotivon hallintapaneeliin')
 			Layout.alignment: Qt.AlignCenter
-			color: '#fbfbfb'
-			font.pixelSize: 20
+			color: Style.textColorLight
+			font.pixelSize: Style.textFontSizeMedium
+			font.bold: true
 			MouseArea {
 				anchors.fill: parent
 				onClicked: {

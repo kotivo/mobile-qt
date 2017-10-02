@@ -2,36 +2,28 @@ import QtQuick 2.7
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtGraphicalEffects 1.0
-import "Connection.js" as Connection
+import 'Connection.js' as Connection
+import '.'
 
 Rectangle {
 	width: (parent.width - 14) / Math.max(Math.floor(parent.width / 300), 1)
 	height: 120
 	color: 'transparent'
-	Rectangle {
+	ShadowRectangle {
 		anchors.fill: parent
 		anchors.margins: 7
-		color: '#fff'
-		//border.color: model.connected ? (!moduleAway.checked ? '#63be5f' : '#8f8f8f') : '#000'
-		layer.enabled: true
-		layer.effect: DropShadow {
-			horizontalOffset: 2
-			verticalOffset: 2
-			color: '#888'
-			radius: 5
-		}
 		Rectangle {
 			id: moduleHeader
 			anchors.top: parent.top
 			anchors.left: parent.left
 			anchors.right: parent.right
 			height: 40
-			color: model.connected ? (!moduleAway.checked ? '#63be5f' : '#8f8f8f') : '#000'
+			color: model.connected ? (!moduleAway.checked ? Style.backgroundPresent : Style.backgroundAway) : Style.backgroundError
 			Text {
 				id: moduleLabel
 				text: model.label
-				color: '#fff'
-				font.pixelSize: 20
+				color: Style.textColorLight
+				font.pixelSize: Style.textFontSizeLarge
 				anchors.fill: parent
 				anchors.leftMargin: 10
 				horizontalAlignment: Text.AlignLeft
@@ -43,9 +35,9 @@ Rectangle {
 				anchors.right: moduleSettingsButton.left
 				contentItem: Label {
 					text: parent.text
-					color: '#fff'
+					color: Style.textColorLight
 					font.bold: true
-					font.pixelSize: 20
+					font.pixelSize: Style.textFontSizeLarge
 					font.family: 'FontAwesome'
 					horizontalAlignment: Text.AlignHCenter
 					verticalAlignment: Text.AlignVCenter
@@ -61,9 +53,9 @@ Rectangle {
 				anchors.right: parent.right
 				contentItem: Label {
 					text: parent.text
-					color: '#fff'
+					color: Style.textColorLight
 					font.bold: true
-					font.pixelSize: 20
+					font.pixelSize: Style.textFontSizeLarge
 					font.family: 'FontAwesome'
 					horizontalAlignment: Text.AlignHCenter
 					verticalAlignment: Text.AlignVCenter
@@ -86,12 +78,12 @@ Rectangle {
 				Label {
 					text: qsTr('Lämpötila:')
 					width: 140
-					font.pixelSize: 14
+					font.pixelSize: Style.textFontSizeNormal
 				}
 				Text {
 					text: parent.visible ? model.temperature.current.toFixed(1) : ''
-					color: '#63be5f'
-					font.pixelSize: 14
+					color: Style.textColorDark
+					font.pixelSize: Style.textFontSizeNormal
 					font.bold: true
 				}
 			}
@@ -101,12 +93,12 @@ Rectangle {
 				Label {
 					text: qsTr('Tavoitelämpötila:')
 					width: 140
-					font.pixelSize: 14
+					font.pixelSize: Style.textFontSizeNormal
 				}
 				Text {
 					text: parent.visible ? model.temperature.target.toFixed(1) : ''
-					color: '#63be5f'
-					font.pixelSize: 14
+					color: Style.textColorDark
+					font.pixelSize: Style.textFontSizeNormal
 					font.bold: true
 				}
 			}
@@ -116,12 +108,12 @@ Rectangle {
 				Label {
 					text: qsTr('Kosteus:')
 					width: 140
-					font.pixelSize: 14
+					font.pixelSize: Style.textFontSizeNormal
 				}
 				Text {
 					text: parent.visible ? model.humidity.current.toFixed(1) + '%' : ''
-					color: '#63be5f'
-					font.pixelSize: 14
+					color: Style.textColorDark
+					font.pixelSize: Style.textFontSizeNormal
 					font.bold: true
 				}
 			}
@@ -129,7 +121,7 @@ Rectangle {
 
 		Text {
 			text: qsTr('Laite ei ole yhteydessä')
-			font.pixelSize: 14
+			font.pixelSize: Style.textFontSizeNormal
 			font.bold: true
 			visible: !model.connected
 			anchors.top: moduleHeader.bottom

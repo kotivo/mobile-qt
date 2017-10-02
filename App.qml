@@ -1,7 +1,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
-import "Connection.js" as Connection
+import 'Connection.js' as Connection
 
 ApplicationWindow {
 	id: app
@@ -9,7 +9,7 @@ ApplicationWindow {
 	width: 720
 	height: 1000
 	title: qsTr('Oma Kotivo')
-	color: '#fff'
+	color: Style.backgroundLight
 
 	StackView {
 		id: container

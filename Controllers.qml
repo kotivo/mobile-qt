@@ -6,7 +6,7 @@ import QtGraphicalEffects 1.0
 import "Connection.js" as Connection
 
 Rectangle {
-	color: '#fff'
+	color: 'transparent'
 	ScrollView {
 		width: app.width
 		height: app.height

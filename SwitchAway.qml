@@ -1,10 +1,11 @@
 import QtQuick 2.7
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
+import '.'
 
 Switch {
 	id: control
-	font.pixelSize: 20
+	font.pixelSize: Style.textFontSizeLarge
 
 	property var text_present: qsTr('Paikalla')
 	property var text_away: qsTr('Poissa')
@@ -18,7 +19,7 @@ Switch {
 		Text {
 			text: !control.checked ? control.text_present : control.text_away
 			font: control.font
-			color: !control.checked ? '#63be5f' : '#8f8f8f'
+			color: !control.checked ? Style.backgroundPresent : Style.backgroundAway
 			horizontalAlignment: Text.AlignHCenter
 			width: 80
 		}
@@ -27,7 +28,7 @@ Switch {
 			y: 30 / 2 - height / 2 + control.font.pixelSize + 5
 			width: parent.width - (control.rightPadding + control.leftPadding)
 			height: 20
-			color: !control.checked ? '#63be5f' : '#8f8f8f'
+			color: !control.checked ? Style.backgroundPresent : Style.backgroundAway
 			radius: 10
 		}
 		Rectangle {
@@ -37,7 +38,7 @@ Switch {
 			height: 30
 			radius: 15
 			color: !control.checked ? '#fff' : '#fff'
-			border.color: '#8f8f8f'
+			border.color: Style.backgroundAway
 		}
 	}
 }

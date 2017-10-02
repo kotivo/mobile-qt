@@ -14,5 +14,7 @@
         <file>DialTemperature.qml</file>
         <file>Header.qml</file>
         <file>Style.qml</file>
+        <file>qmldir</file>
+        <file>ShadowRectangle.qml</file>
     </qresource>
 </RCC>
