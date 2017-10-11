@@ -2,7 +2,6 @@ import QtQuick 2.7
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import Qt.labs.settings 1.0
-import QtGraphicalEffects 1.0
 import "Connection.js" as Connection
 
 Rectangle {
