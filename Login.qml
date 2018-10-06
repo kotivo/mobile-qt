@@ -46,7 +46,6 @@ Rectangle {
 			echoMode: TextInput.Password
 			Layout.alignment: Qt.AlignCenter
 			enabled: !logging
-			visible: !adminLogin.visible
 		}
 
 		Button {
@@ -93,9 +92,16 @@ Rectangle {
 
 			onClicked: {
 				logging = true;
-				var password = adminLogin.visible ? '' : loginPassword.text;
+				var password = loginPassword.text;
 				var admin_username = adminLogin.visible ? loginAdminUsername.text : undefined;
 				var admin_password = adminLogin.visible ? loginAdminPassword.text : undefined;
+				if (adminLogin.visible && loginRootUrl.text) {
+					/* set custom root url */
+					Connection.setRootUrl(loginRootUrl.text);
+				} else {
+					/* reset root url to default */
+					Connection.setRootUrl();
+				}
 				Connection.login(loginUsername.text, password, admin_username, admin_password, function(data) {
 					logging = false;
 					container.push(controllersView);
@@ -134,6 +140,12 @@ Rectangle {
 				}
 			}
 			TextField {
+				id: loginRootUrl
+				placeholderText: qsTr('API URL')
+				Layout.alignment: Qt.AlignCenter
+				enabled: !logging
+			}
+			TextField {
 				id: loginAdminUsername
 				placeholderText: qsTr('Tunnus')
 				Layout.alignment: Qt.AlignCenter
@@ -162,11 +174,13 @@ Rectangle {
 			property alias admin: adminLogin.visible
 			property alias adminUsername: loginAdminUsername.text
 			property alias adminPassword: loginAdminPassword.text
+			property alias rootUrl: loginRootUrl.text
 		}
 
 		Component.onDestruction: {
 			loginUsername.text = loginRemember.checked ? loginUsername.text : '';
 			loginPassword.text = loginRemember.checked ? loginPassword.text : '';
+			loginRootUrl.text = adminLogin.visible ? loginRootUrl.text : '';
 			loginAdminUsername.text = adminLogin.visible ? loginAdminUsername.text : '';
 			loginAdminPassword.text = adminLogin.visible ? loginAdminPassword.text : '';
 		}

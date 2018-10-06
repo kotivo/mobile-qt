@@ -1,9 +1,21 @@
 .pragma library
-
 //var rootUrl = 'http://api.dev';
 var rootUrl = 'https://yhteys.kotivo.fi';
 var apiUrl = rootUrl + '/api/v1';
 var systemUrl = rootUrl + '';
+
+function getRootUrl() {
+	return rootUrl;
+}
+
+function setRootUrl(url) {
+	if (!url) {
+		url = 'https://yhteys.kotivo.fi';
+	}
+	rootUrl = url;
+	apiUrl = rootUrl + '/api/v1';
+	systemUrl = rootUrl + '';
+}
 
 function request(method, url, headers, body, raw, cb_ok, cb_error) {
 	var http = new XMLHttpRequest();
@@ -24,7 +36,7 @@ function request(method, url, headers, body, raw, cb_ok, cb_error) {
 					if (cb_ok !== undefined) {
 						cb_ok(response);
 					}
-				} catch(e) {
+				} catch (e) {
 					console.log('error (' + http.status + '): ' + http.responseText.slice(0, 100));
 					if (cb_error !== undefined) {
 						cb_error(http);
@@ -61,9 +73,14 @@ function put(postfix, data, cb_ok, cb_error) {
 
 function login(username, password, admin_username, admin_password, cb_ok, cb_error) {
 	if (admin_username && admin_password) {
-		request('GET', systemUrl + '/account/fake/' + username + '/', { 'Authorization': 'Basic ' + Qt.btoa(admin_username + ':' + admin_password) }, undefined, true, cb_ok, cb_error);
+		request('GET', systemUrl + '/account/fake/' + username + '/', {
+			'Authorization': 'Basic ' + Qt.btoa(admin_username + ':' + admin_password)
+		}, undefined, true, cb_ok, cb_error);
 	} else {
-		put('/accounts/login/', { 'username': username, 'password': password }, cb_ok, cb_error);
+		put('/accounts/login/', {
+			'username': username,
+			'password': password
+		}, cb_ok, cb_error);
 	}
 }
 
@@ -103,7 +120,9 @@ function controllersGet(model, cb_error) {
 }
 
 function controllerAway(controller, away, cb_ok, cb_error) {
-	put('/controllers/' + controller.id + '/profiles/away/', { 'away': away }, cb_ok, cb_error);
+	put('/controllers/' + controller.id + '/profiles/away/', {
+		'away': away
+	}, cb_ok, cb_error);
 }
 
 function modulesGet(controller, model) {
@@ -138,6 +157,7 @@ function modulesGet(controller, model) {
 }
 
 function moduleAway(controller, module, away, cb_ok, cb_error) {
-	put('/controllers/' + controller.id + '/modules/' + module.id, { 'away': away }, cb_ok, cb_error);
+	put('/controllers/' + controller.id + '/modules/' + module.id, {
+		'away': away
+	}, cb_ok, cb_error);
 }
-
